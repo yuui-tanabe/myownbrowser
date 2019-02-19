@@ -35,7 +35,7 @@ jobs:
           name: Update System & Install Tools
           command: | 
             emerge -U @world
-            emerge dev-java/oracle-jdk-bin dev-vcs/git 
+            emerge --autounmask-write dev-java/oracle-jdk-bin dev-vcs/git 
       - checkout
       
       - run:
