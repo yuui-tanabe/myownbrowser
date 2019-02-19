@@ -35,7 +35,8 @@ jobs:
           name: Update System & Install Tools
           command: | 
             emerge -U @world
-            emerge --autounmask-write =dev-java/oracle-jdk-bin-11.0.2 dev-vcs/git 
+            echo ">=dev-java/oracle-jdk-bin-11.0.2 Oracle-BCLA-JavaSE" > package.license
+            emerge dev-java/oracle-jdk-bin dev-vcs/git 
       - checkout
       
       - run:
