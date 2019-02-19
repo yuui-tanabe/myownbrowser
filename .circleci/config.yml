@@ -36,7 +36,7 @@ jobs:
           command: | 
             emerge -U @world
             echo ">=dev-java/oracle-jdk-bin-1.8.0.202:1.8 Oracle-BCLA-JavaSE" > package.license
-            emerge dev-java/oracle-jdk-bin dev-vcs/git 
+            emerge --autounmask-write dev-java/oracle-jdk-bin dev-vcs/git 
       - checkout
       
       - run:
