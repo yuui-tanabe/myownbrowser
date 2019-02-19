@@ -35,7 +35,7 @@ jobs:
           name: Update System & Install Tools
           command: | 
             emerge -U @world
-            emerge --autounmask-write dev-java/oracle-jdk-bin dev-vcs/git 
+            emerge --autounmask-write =dev-java/oracle-jdk-bin-11.0.2 dev-vcs/git 
       - checkout
       
       - run:
@@ -46,4 +46,3 @@ jobs:
             rm com/yuuitanabe/myownbrowser/*.java
             cat <<EOF > jar.manifest
             jar uvfm jar.manifest com
-            
