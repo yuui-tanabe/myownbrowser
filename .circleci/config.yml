@@ -35,7 +35,7 @@ jobs:
           name: Update System & Install Tools
           command: | 
             emerge -U @world
-            echo ">=dev-java/oracle-jdk-bin-1.8.0.202:1.8 Oracle-BCLA-JavaSE" > /etc/portage/package.license
+            echo "dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE" > /etc/portage/package.license
             emerge dev-java/oracle-jdk-bin dev-vcs/git 
       - checkout
       
