@@ -11,7 +11,7 @@ jobs:
             apt-get update
             apt-get -y upgrade
             apt-get install -y curl
-            curl -LO -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/jdk-11.0.2_linux-x64_bin.deb
+            curl -LO -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/jdk-11.0.2_linux-x64_bin.deb
             dpkg -i jdk-11.0.2_linux-x64_bin.deb
       - checkout
       
