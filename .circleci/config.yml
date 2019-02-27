@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: gentoo/stage3-amd64
+      - image: ubuntu:bionic
 
     steps:
       - run:
