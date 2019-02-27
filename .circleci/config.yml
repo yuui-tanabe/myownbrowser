@@ -10,8 +10,8 @@ jobs:
           command: | 
             apt-get update
             apt-get -y upgrade
-            apt-get install -y curl
-            curl -LkvOf "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/jdk-11.0.2_linux-x64_bin.deb
+            apt-get install -y wget
+            wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/jdk-11.0.2_linux-x64_bin.deb
             dpkg -i jdk-11.0.2_linux-x64_bin.deb
       - checkout
       
