@@ -6,44 +6,16 @@ jobs:
 
     steps:
       - run:
-          name: Install Repo
-          command: |
-            cat <<EOF > /etc/portage/repos.conf
-            [DEFAULT]
-            main-repo = gentoo
-            
-            [gentoo]
-            location = /usr/portage
-            sync-type = rsync
-            sync-uri = rsync://rsync.gentoo.org/gentoo-portage
-            auto-sync = yes
-            sync-rsync-verify-jobs = 1
-            sync-rsync-verify-metamanifest = yes
-            sync-rsync-verify-max-age = 24
-            sync-openpgp-key-path = /usr/share/openpgp-keys/gentoo-release.asc
-            sync-openpgp-key-refresh-retry-count = 40
-            sync-openpgp-key-refresh-retry-overall-timeout = 1200
-            sync-openpgp-key-refresh-retry-delay-exp-base = 2
-            sync-openpgp-key-refresh-retry-delay-max = 60
-            sync-openpgp-key-refresh-retry-delay-mult = 4
-            EOF
-      
-      - run:
-          name: Synchronize Repo
-          command: emerge --sync
-      - run:
           name: Update System & Install Tools
           command: | 
-            emerge -U @world
-            echo "dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE" > /etc/portage/package.license
-            emerge dev-java/oracle-jdk-bin dev-vcs/git 
+            apt update
+            apt upgrade
+            curl -LO -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/jdk-11.0.2_linux-x64_bin.deb
+            dpkg -i jdk-11.0.2_linux-x64_bin.deb
       - checkout
       
       - run:
           name: CI Build
           command: |
-            javac src/com/yuuitanabe/myownbrowser/*.java
-            cp src/com .
-            rm com/yuuitanabe/myownbrowser/*.java
-            cat <<EOF > jar.manifest
-            jar uvfm jar.manifest com
+            gradlew build
+            
