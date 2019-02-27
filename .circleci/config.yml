@@ -17,5 +17,5 @@ jobs:
       - run:
           name: CI Build
           command: |
-            gradlew build
+           ./gradlew build
             
