@@ -4,7 +4,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.yuuitanabe.webbrowser.Parsing
+import com.yuuitanabe.webbrowser.Parsing;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
