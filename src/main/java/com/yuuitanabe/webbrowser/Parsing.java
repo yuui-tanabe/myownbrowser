@@ -6,7 +6,7 @@ package com.yuuitanabe.webbrowser;
 import org.jsoup.Jsoup;
 
 public class Parsing {
-    public static void main(String[] args) {
+    public static void parsing() {
     	
     }
 }
