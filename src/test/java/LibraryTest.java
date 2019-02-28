@@ -9,6 +9,6 @@ import com.yuuitanabe.webbrowser.Parsing;
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
         Parsing classUnderTest = new Parsing();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.parse());
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.parsing());
     }
 }
