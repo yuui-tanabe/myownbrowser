@@ -10,7 +10,7 @@ jobs:
           command: | 
             apt-get update
             apt-get -y upgrade
-            apt-get install -y libasound
+            apt-get install -y libasound2
             dpkg -i jdk-11.0.2_linux-x64_bin.deb
       - checkout
       
