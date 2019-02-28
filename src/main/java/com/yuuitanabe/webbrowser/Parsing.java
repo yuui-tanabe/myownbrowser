@@ -7,7 +7,6 @@ import org.jsoup.Jsoup;
 
 public class Parsing {
     public static void parsing() {
-        boolean ret = true;
-    	return ret;
+        
     }
 }
