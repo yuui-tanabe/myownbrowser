@@ -17,11 +17,13 @@ jobs:
       - checkout
       - run: git lfs pull
       - run:
-          name: Install Java
-          command: dpkg -i jdk*
+          name: Install Java & Gradle
+          command: |
+            dpkg -i jdk*
+            apt-get install -y gradle
       
       - run:
           name: CI Build
           command: |
-           ./gradlew build
+           gradle build
             
