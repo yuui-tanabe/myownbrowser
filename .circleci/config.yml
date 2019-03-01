@@ -6,13 +6,13 @@ jobs:
 
     steps:
       - run:
-          name: Update System & Install Tools
+          name: Update System & Install Tools & Checkout
           command: | 
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
             apt-get update
             apt-get -y upgrade
-            apt-get install -y libasound2
-            dpkg -i  $CIRCLE_WORKING_DIRECTORY/jdk-11.0.2_linux-x64_bin.deb
-      - checkout
+            apt-get install -y libasound2 git-lfs
+            git lfs clone $CIRCLE_REPOSITORY_URL
       
       - run:
           name: CI Build
