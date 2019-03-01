@@ -9,7 +9,7 @@ jobs:
           name: Update System & Install Tools & Checkout
           command: | 
             apt-get update
-            apt-get install curl
+            apt-get install -y curl
             curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
             apt-get -y upgrade
             apt-get install -y libasound2 git-lfs
