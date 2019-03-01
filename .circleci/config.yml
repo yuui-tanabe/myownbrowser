@@ -15,7 +15,10 @@ jobs:
             apt-get install -y libasound2 git-lfs
             
       - checkout
-      - run: git lfs pull 
+      - run: git lfs pull
+      - run:
+          name: Install Java
+          command: dpkg -i jdk*
       
       - run:
           name: CI Build
