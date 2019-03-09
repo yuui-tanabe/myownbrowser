@@ -25,7 +25,7 @@ dependencies {
     testImplementation("junit:junit:4.12")
     
     // This dependency is requited to use HTML5 parser.
-    classpath("org.jsoup:jsoup:1.11.3") 
+    compile("org.jsoup:jsoup:1.11.3") 
 }
 
 // In this section you declare where to find the dependencies of your project
