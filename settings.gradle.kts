@@ -7,7 +7,4 @@
  * in the user guide at https://docs.gradle.org/4.8.1/userguide/multi_project_builds.html
  */
 
-import org.gradle.api.plugins.*
-import org.gradle.api.tasks.wrapper.*
-
-(rootProject as ProjectDescriptor) = 'MyWebBrowser'
+(rootProject as ProjectDescriptor).name = 'MyWebBrowser'
