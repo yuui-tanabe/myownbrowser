@@ -11,6 +11,7 @@ plugins {
     val plugins = listOf("java-library","eclipse")
     plugins.forEach {
         id(it)
+    }
 }
 
 dependencies {
