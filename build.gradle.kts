@@ -8,7 +8,7 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library & others
-    val plugins = listOf("java-library","eclipse")
+    val plugins = listOf("java-library","eclipse","org.sonarqube")
     plugins.forEach {
         id(it)
     }
