@@ -7,4 +7,8 @@
  * in the user guide at https://docs.gradle.org/4.8.1/userguide/multi_project_builds.html
  */
 
+import org.gradle.api.plugins.*
+import org.gradle.api.tasks.wrapper.*
+import org.gradle.script.lang.kotlin.*
+
 (rootProject as ProjectDescriptor) = 'MyWebBrowser'
