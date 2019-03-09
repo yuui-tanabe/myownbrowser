@@ -26,7 +26,9 @@ dependencies {
     
     // This dependency is requited to use HTML5 parser.
     compile("org.jsoup:jsoup:1.11.3") 
-}
+    
+    // This dependency is required on code scanning.
+    classpath("org.sonarqube.gradle:gradle-sonarqube-plugin:1.0")
 
 // In this section you declare where to find the dependencies of your project
 repositories {
