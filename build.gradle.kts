@@ -8,10 +8,11 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library & others
-    val plugins = listOf("java-library","eclipse","org.sonarqube:2.7","jacoco")
+    val plugins = listOf("java-library","eclipse","jacoco")
     plugins.forEach {
         id(it)
     }
+        id("org.sonarqube") version "2.7"
 }
 
 dependencies {
@@ -23,23 +24,27 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
-    
-    // This dependency is requited to use HTML5 parser.
-    compile("org.jsoup:jsoup:1.11.3") 
-    
-    // This dependency is required on code scanning.
-    classpath("org.sonarqube.gradle:gradle-sonarqube-plugin:1.0")
 
+    // This dependency is requited to use HTML5 parser.
+    compile("org.jsoup:jsoup:1.11.3")
+
+}
 // In this section you declare where to find the dependencies of your project
+
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    maven(url = StringBuffer("http://repo1.maven.org/maven2/"))
+    maven(url = StringBuffer("https://plugins.gradle.org/m2/"))
     jcenter()
     mavenCentral()
-    maven {
-        url "http://repo1.maven.org/maven2/"
-      }
-      maven {
-        url "https://plugins.gradle.org/m2/"
-      }
+}
+
+// SonarQube Code Scanning 'sonarqube' section.
+sonarqube {
+	properties {
+		property("sonar.host.url","https://sonarcloud.io")
+		property("sonar.sources","src/main/java")
+		property("sonar.language","java")
+	}
 }
