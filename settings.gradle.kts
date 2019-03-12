@@ -8,3 +8,4 @@
  */
 
 (rootProject as ProjectDescriptor).name = "ownbrowserlib"
+(rootProject as ProjectDescriptor).buildFileName = "build.gradle.kts"

@@ -47,12 +47,11 @@ dependencies {
 
 	val deps = listOf(
 			"org.jsoup:jsoup:1.11.3",
-			"org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21",
 			v8id
 
 	)
 	deps.forEach {
-		compile(it)
+		implementation(it)
 	}
 
 }
@@ -71,6 +70,15 @@ repositories {
 	}
 }
 
+eclipse {
+	classpath {
+		containers("org.springsource.ide.eclipse.gradle.classpathcontainer")
+	}
+}
+jar {
+  baseName = "spring-boot-hello-world"
+  version =  "0.0.1-SNAPSHOT"
+}
 // SonarQube Code Scanning 'sonarqube' section.
 sonarqube {
 	properties {
