@@ -24,7 +24,6 @@ jobs:
       - run:
           name: CI Build
           command: |
-           ./gradlew build
            ./gradlew sonarqube \
            -Dsonar.projectKey=yuui-tanabe_myownbrowser \
            -Dsonar.organization=yuui-tanabe-github \
