@@ -62,7 +62,7 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
     mavenCentral()
-	maven(url = StringBuffer("http://repo1.maven.org/maven2/"))
+	maven(url = StringBuffer("https://repo1.maven.org/maven2/"))
     maven(url = StringBuffer("https://plugins.gradle.org/m2/"))
 
 }
