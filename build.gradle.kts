@@ -60,9 +60,13 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
-	maven(url = StringBuffer("https://repo1.maven.org/maven2/"))
-    maven(url = StringBuffer("https://plugins.gradle.org/m2/"))
-
+    val mvnrepo = listOf(
+			"https://repo1.maven.org/maven2",
+			"https://plugins.gradle.org/m2/"
+			)
+	mvnrepo.forEach {
+		maven(url = StringBuffer(it)
+	}
 }
 
 // SonarQube Code Scanning 'sonarqube' section.
