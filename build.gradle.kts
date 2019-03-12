@@ -9,6 +9,14 @@
  */
 
 plugins {
+	repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+	maven(url = StringBuffer("http://repo1.maven.org/maven2/"))
+    maven(url = StringBuffer("https://plugins.gradle.org/m2/"))
+
+}
     // Apply the java-library plugin to add support for Java Library & others
     val plugins = listOf("java-library","eclipse","jacoco")
     plugins.forEach {
@@ -60,9 +68,6 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
-	maven(url = StringBuffer("http://repo1.maven.org/maven2/"))
-    maven(url = StringBuffer("https://plugins.gradle.org/m2/"))
-
 }
 
 // SonarQube Code Scanning 'sonarqube' section.
