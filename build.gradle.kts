@@ -9,7 +9,6 @@
  */
 
 plugins {
-
     // Apply the java-library plugin to add support for Java Library & others
     val plugins = listOf("java-library","eclipse","jacoco")
     plugins.forEach {
@@ -47,7 +46,7 @@ dependencies {
 	val v8id = StringBuffer(v8pkg + osname + "_" + arch + ":" + v8ver )
 
 	val deps = listOf(
-			"org,jsoup:jsoup:1.11.3",
+			"org.jsoup:jsoup:1.11.3",
 			v8id
 	)
 	deps.forEach {
