@@ -27,7 +27,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 
-    // This dependency is requited to use HTML5 parser.
+    // This dependency is requited to use HTML5 parser & etc.
     val tk = System.getProperty("awt.toolkit")
 	val osarch = System.getProperty("os.arch")
 	val v8pkg = "com.eclipsesource.j2v8:j2v8_"
@@ -47,7 +47,9 @@ dependencies {
 
 	val deps = listOf(
 			"org.jsoup:jsoup:1.11.3",
+			"org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21",
 			v8id
+
 	)
 	deps.forEach {
 		compile(it)

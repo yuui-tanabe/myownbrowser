@@ -2,3 +2,7 @@
 /.project
 /.gradle/**
 /.settings/**
+**.class
+**.jar
+**.MF
+/bin/**
