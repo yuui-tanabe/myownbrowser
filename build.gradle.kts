@@ -65,7 +65,7 @@ repositories {
 			"https://plugins.gradle.org/m2/"
 			)
 	mvnrepo.forEach {
-		maven(url = StringBuffer(it)
+		maven(url = StringBuffer(it))
 	}
 }
 
