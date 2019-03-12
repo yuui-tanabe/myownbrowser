@@ -35,10 +35,12 @@ dependencies {
 	var osname = when(tk) {
 		"sun.awt.X11.XToolkit" -> "linux"
 		"sun.awt.windows.WToolkit" -> "win32"
+		else -> null
 	}
 	var arch = when(osarch) {
 		"amd64" -> "x86_64"
 		"x86" -> "x86"
+		else -> null
 	}
 
 	val v8id = StringBuffer(v8pkg + osname + "_" + arch + ":" + v8ver )
