@@ -13,7 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import kotlin.io.*;
 
 public class Parsing {
 	public static boolean get(String[] argv) {
