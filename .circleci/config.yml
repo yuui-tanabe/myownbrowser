@@ -39,7 +39,7 @@ jobs:
       jobs:
         - build:
           requires:
-              - prepare
+            - prepare
         - deploy:
           requires:
             - build     
