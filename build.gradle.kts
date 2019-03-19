@@ -42,6 +42,7 @@ dependencies {
 
 	val deps = listOf(
 		"org.springframework.boot:spring-boot-starter-web:2.1.3.RELEASE"
+		"com.pi4j:pi4j-core:1.2"
 	)
 	deps.forEach {
 		implementation(it)
