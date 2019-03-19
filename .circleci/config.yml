@@ -8,9 +8,9 @@ jobs:
       - run:
           name: Update System & Install Tools & Checkout
           command: | 
-            pacman -Syu
-            pacman -Sy openjdk git openssh
-      - checkout
+            pacman -Syu --noconfirm
+            pacman -Sy --noconfirm openjdk git openssh
+      - checkout 
       
       - run:
           name: CI Build
@@ -20,4 +20,8 @@ jobs:
            -Dsonar.organization=yuui-tanabe-github \
            -Dsonar.host.url=https://sonarcloud.io \
            -Dsonar.login=$SONAR_TOKEN
-            
+  deploy:
+    steps:
+      - run:
+          name: Deploy
+          command: curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/1.0.0/pipres.jar
