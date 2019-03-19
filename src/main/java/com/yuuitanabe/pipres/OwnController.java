@@ -1,5 +1,6 @@
-package com.yuuitanabe.webbrowser;
+package com.yuuitanabe.pipres;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +10,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
+
 @Controller
 @EnableAutoConfiguration
 
-public class OwnController {
+public class OwnController{
 
-	@RequestMapping("/hello")
+	@RequestMapping("/Pressure")
 	@ResponseBody
 	public List<String> top(@RequestParam(value="name", required=false) String name) {
 		List<String> list = new ArrayList<String>();
-		list.add("spring");
+		try {
+			list.add(BMP180Run.pressure());
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (UnsupportedBusNumberException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		return list;
 	}
 
