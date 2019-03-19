@@ -15,6 +15,7 @@ jobs:
       - run:
           name: CI Build
           command: |
+           ./gradlew bootJar
            ./gradlew sonarqube \
            -Dsonar.projectKey=yuui-tanabe_myownbrowser \
            -Dsonar.organization=yuui-tanabe-github \
@@ -25,3 +26,4 @@ jobs:
       - run:
           name: Deploy
           command: curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/1.0.0/pipres.jar
+          when: success
