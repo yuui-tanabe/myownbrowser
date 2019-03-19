@@ -37,6 +37,7 @@ jobs:
     version: 2
     prepare:
       jobs:
+        - prepare
         - build:
           requires:
             - prepare
