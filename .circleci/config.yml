@@ -39,5 +39,7 @@ jobs:
       - deploy:
         requires:
           - build
-          
+      - build:
+        requires:
+          - prepare
           
