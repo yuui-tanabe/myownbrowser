@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  prepare:
     docker:
       - image: archlinux/base
 
@@ -11,7 +11,10 @@ jobs:
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm openjdk git openssh
       - checkout 
-      
+  build:
+    docker:
+      - image: arhclinux/base
+    steps:
       - run:
           name: CI Build
           command: |
@@ -21,8 +24,20 @@ jobs:
            -Dsonar.organization=yuui-tanabe-github \
            -Dsonar.host.url=https://sonarcloud.io \
            -Dsonar.login=$SONAR_TOKEN
+  deploy:
+    docker:
+      - image: archlinux/base
+    steps:
       - run:
           name: Deploy
-          command: curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/1.0.0/pipres.jar
-          when: succeed
+          command: |
+            pacman -Sy curl
+            curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
+  workflows:
+    version: 2
+      jobs:
+        - deploy:
+          requires:
+            - build
+          
           
