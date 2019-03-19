@@ -24,13 +24,13 @@ public class OwnController{
 		try {
 			list.add(BMP180Run.pressure());
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
+			// TODO Automatically generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedBusNumberException e) {
-			// TODO 自動生成された catch ブロック
+			// TODO Automatically generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
+			// TODO Automatically generated catch block
 			e.printStackTrace();
 		}
 		return list;
