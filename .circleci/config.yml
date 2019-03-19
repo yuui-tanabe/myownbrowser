@@ -2,24 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:bionic
+      - image: archlinux/base
 
     steps:
       - run:
           name: Update System & Install Tools & Checkout
           command: | 
-            apt-get update
-            apt-get install -y curl
-            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-            apt-get -y upgrade
-            apt-get install -y libasound2 git-lfs
-            
+            pacman -Syu
+            pacman -Sy openjdk git openssh
       - checkout
-      - run: git lfs pull
-      - run:
-          name: Install Java & Gradle
-          command: |
-            dpkg -i jdk*
       
       - run:
           name: CI Build
