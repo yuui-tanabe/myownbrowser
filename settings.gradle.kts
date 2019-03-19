@@ -7,5 +7,5 @@
  * in the user guide at https://docs.gradle.org/4.8.1/userguide/multi_project_builds.html
  */
 
-(rootProject as ProjectDescriptor).name = "ownbrowserlib"
+(rootProject as ProjectDescriptor).name = "pipres"
 (rootProject as ProjectDescriptor).buildFileName = "build.gradle.kts"
