@@ -36,9 +36,10 @@ jobs:
   workflows:
     version: 2
     jobs:
-      - deploy:
-        requires:
-          - build
+      - steps:
+        - deploy:
+          requires:
+            - build
       - build:
         requires:
           - prepare
