@@ -10,11 +10,16 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library & others
-    val plugins = listOf("java-library","eclipse","jacoco")
+    val plugins = listOf(
+		"java-library",
+		"eclipse",
+		"jacoco"
+    	)
     plugins.forEach {
         id(it)
     }
         id("org.sonarqube") version "2.7"
+        id("org.springframework.boot") version "2.1.3.RELEASE"
 }
 
 dependencies {
@@ -25,30 +30,18 @@ dependencies {
     implementation("com.google.guava:guava:23.0")
 
     // Use JUnit test framework
-    testImplementation("junit:junit:4.12")
+    val testdeps = listOf(
+	"org.springframework.boot:spring-boot-starter-test:2.1.3.RELEASE"
+	)
+	testdeps.forEach {
+	testImplementation(it)
+	}
 
     // This dependency is requited to use HTML5 parser & etc.
-    val tk = System.getProperty("awt.toolkit")
-	val osarch = System.getProperty("os.arch")
-	val v8pkg = "com.eclipsesource.j2v8:j2v8_"
-	val v8ver = "4.6.0"
-	var osname = when(tk) {
-		"sun.awt.X11.XToolkit" -> "linux"
-		"sun.awt.windows.WToolkit" -> "win32"
-		else -> null
-	}
-	var arch = when(osarch) {
-		"amd64" -> "x86_64"
-		"x86" -> "x86"
-		else -> null
-	}
 
-	val v8id = StringBuffer(v8pkg + osname + "_" + arch + ":" + v8ver )
 
 	val deps = listOf(
-			"org.jsoup:jsoup:1.11.3",
-			v8id
-
+		"org.springframework.boot:spring-boot-starter-web:2.1.3.RELEASE"
 	)
 	deps.forEach {
 		implementation(it)
@@ -75,9 +68,11 @@ eclipse {
 		containers("org.springsource.ide.eclipse.gradle.classpathcontainer")
 	}
 }
-jar {
-  baseName = "spring-boot-hello-world"
-  version =  "0.0.1-SNAPSHOT"
+tasks {
+	jar {
+		baseName = "spring-boot-hello-world"
+		version =  "0.0.1-SNAPSHOT"
+	}
 }
 // SonarQube Code Scanning 'sonarqube' section.
 sonarqube {
