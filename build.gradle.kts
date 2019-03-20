@@ -42,6 +42,10 @@ dependencies {
 
 	val deps = listOf(
 		"org.springframework.boot:spring-boot-starter-web:2.1.3.RELEASE",
+		"org.springframework.boot:spring-boot-starter-security:2.1.3.RELEASE",
+		"org.springframework.boot:spring-boot-starter-thymeleaf:2.1.3.RELEASE",
+		"org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.3.RELEASE",
+		"org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE",
 		"com.pi4j:pi4j-core:1.2"
 	)
 	deps.forEach {
