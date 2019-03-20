@@ -11,8 +11,6 @@ jobs:
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
   build:      
-    docker:
-      - image: archlinux/base
     steps:
      - checkout
      - run:
@@ -28,8 +26,6 @@ jobs:
             JAVA_HOME: /usr/lib/jvm/default/bin
   
   deploy:
-    docker:
-      - image: archlinux/base
     steps:
       - run:
           name: Deploy
