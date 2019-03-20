@@ -5,6 +5,11 @@ jobs:
       - image: archlinux/base
 
     steps:
+      - run:
+          name: Install Tools
+          command: |
+            pacman -Syu --noprogressbar --noconfirm
+            pacman -Sy --noconfirm --noprogress git openssh tar
       - checkout
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
@@ -14,6 +19,12 @@ jobs:
     docker:
       - image: archlinux/base
     steps:
+      - run:
+          name: Install Tools
+          command: |
+            pacman -Syu --noconfirm --noprogress
+            pacman -Sy --noconfirm --noprogress tar jdk-openjdk
+            
       - restore_cache:
           keys:
             - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
@@ -50,7 +61,7 @@ workflows:
       - Build:
           requires:
             - Save code to cache
-      - deploy:
+      - Deploy:
           requires:
             - Build
         
