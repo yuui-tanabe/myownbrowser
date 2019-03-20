@@ -10,10 +10,12 @@ jobs:
           command: | 
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
-  build:      
+  build:
+    docker:
+      - image: archlinux/base
     steps:
-     - checkout
-     - run:
+      - checkout
+      - run:
           name: CI Build
           command: |
            ./gradlew bootJar
@@ -26,6 +28,8 @@ jobs:
             JAVA_HOME: /usr/lib/jvm/default/bin
   
   deploy:
+    docker:
+      - image: archlinux/base
     steps:
       - run:
           name: Deploy
@@ -36,7 +40,6 @@ workflows:
   version: 2
   ci-work:
     jobs:
-      - prepare
       - build:
           requires:
             - prepare
