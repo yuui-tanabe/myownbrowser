@@ -24,6 +24,7 @@ jobs:
           command: |
             pacman -Syu --noconfirm --noprogress
             pacman -Sy --noconfirm --noprogress tar jdk-openjdk
+            source /etc/profile.d/jre.sh
             
       - restore_cache:
           keys:
