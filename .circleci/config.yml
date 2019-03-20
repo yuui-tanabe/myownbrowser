@@ -10,6 +10,7 @@ jobs:
           command: | 
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
+            source /etc/profile.d/jre.sh
   build:
     docker:
       - image: archlinux/base
