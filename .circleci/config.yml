@@ -33,15 +33,15 @@ jobs:
           command: |
             pacman -Sy curl
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
-  workflows:
-    version: 2
-    jobs:
-      - prepare
-      - build:
-          requires:
-            - prepare
-      - deploy:
-          requires:
-            - build     
+workflows:
+  version: 2
+  jobs:
+    - prepare
+    - build:
+        requires:
+          - prepare
+    - deploy:
+        requires:
+          - build     
         
           
