@@ -15,7 +15,7 @@ public class BMP180 {
     public static final int HIGHRES       = 2;
     public static final int ULTRAHIGHRES  = 3;
 
-    private static int mode;
+    private int mode;
 
     // Registers
     private static final int CAL_AC1   = 0xAA;
@@ -28,19 +28,19 @@ public class BMP180 {
 
     private static final int I2C_BUS     = I2CBus.BUS_1;
     private static final int I2C_ADDRESS = 0x77;
-    private static I2CDevice device;
+    private I2CDevice device;
 
-    private static int AC1;
-    private static int AC2;
-    private static int AC3;
-    private static int AC4;
-    private static int AC5;
-    private static int AC6;
-    private static int B1 ;
-    private static int B2 ;
-    private static int MB ;
-    private static int MC ;
-    private static int MD ;
+    private int AC1;
+    private int AC2;
+    private int AC3;
+    private int AC4;
+    private int AC5;
+    private int AC6;
+    private int B1 ;
+    private int B2 ;
+    private int MB ;
+    private int MC ;
+    private int MD ;
 
     private double standardSeaLevelPressure = 1013.89; // avarage sea level pressure in Tokyo
 
@@ -80,7 +80,7 @@ public class BMP180 {
         this(BMP180.STANDARD);
     }
 
-    private static int readAndCalcB5() throws IOException, InterruptedException {
+    private int readAndCalcB5() throws IOException, InterruptedException {
         // Select measurement control register
         // Enable temperature measurement
         device.write(CTRL_MEAS, CMD_READTEMP);
@@ -110,7 +110,7 @@ public class BMP180 {
         return c * 1.8 + 32.0;
     }
 
-    public static double readPressure() throws IOException, InterruptedException {
+    public double readPressure() throws IOException, InterruptedException {
         // Select measurement control register
         // Enable pressure measurement
         device.write(CTRL_MEAS, (byte)(CMD_READPRESSURE + (mode << 6)));
@@ -174,11 +174,11 @@ public class BMP180 {
         return ((hi > 127 ? hi - 256 : hi) << 8) + (lsb & 0xFF);
     }
 
-    private static int UINT(byte msb, byte lsb) {
+    private int UINT(byte msb, byte lsb) {
         return ((msb & 0xFF) << 8) + (lsb & 0xFF);
     }
 
-    private static int UINT(byte msb, byte lsb, byte xlsb) {
+    private int UINT(byte msb, byte lsb, byte xlsb) {
         return ((msb & 0xFF) << 16) + UINT(lsb, xlsb);
     }
 }

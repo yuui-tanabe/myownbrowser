@@ -13,19 +13,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
 /**
- * <pre>
- * API通信に対してCSRFトークンをCookieで設定するためのFilter
- * </pre>
  *
  * @author naoki.enokido
  *
  */
 public class CSRFCookieFilter extends OncePerRequestFilter {
 
-    /** CookieにCSRFを設定する際の名称 */
     private static final String CSRF_COOKIE_NAME = "_ctkn";
-
-    /** CookieにCSRFを設定する際の有効範囲 */
     private static final String CSRF_COOKIE_PATH = "/";
 
     /*
