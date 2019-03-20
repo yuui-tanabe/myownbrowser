@@ -10,7 +10,8 @@ jobs:
           command: | 
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
-            source /etc/profile.d/jre.sh
+          environment:
+            JAVA_HOME: /usr/lib/jvm/default/bin
   build:
     docker:
       - image: archlinux/base
