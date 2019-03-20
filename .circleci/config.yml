@@ -37,9 +37,6 @@ jobs:
            -Dsonar.organization=yuui-tanabe-github \
            -Dsonar.host.url=https://sonarcloud.io \
            -Dsonar.login=$SONAR_TOKEN
-      
-          environment:
-            JAVA_HOME: /usr/lib/jvm/default/bin
     
   Deploy:
     docker:
