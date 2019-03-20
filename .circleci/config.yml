@@ -45,6 +45,7 @@ jobs:
        - save_cache:
            key: v1-repo-with-bin
            paths: ~/project
+           
   Deploy:
     docker:
       - image: archlinux/base
