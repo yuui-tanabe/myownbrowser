@@ -40,7 +40,7 @@ jobs:
            -Dsonar.host.url=https://sonarcloud.io \
            -Dsonar.login=$SONAR_TOKEN
           environment:
-            JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+            - JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
   Deploy:
     docker:
       - image: archlinux/base
