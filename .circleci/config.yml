@@ -10,7 +10,7 @@ jobs:
           command: | 
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
-          
+  build:      
     docker:
       - image: archlinux/base
     steps:
@@ -26,7 +26,7 @@ jobs:
            -Dsonar.login=$SONAR_TOKEN
           environment:
             JAVA_HOME: /usr/lib/jvm/default/bin
-  build:
+  
   deploy:
     docker:
       - image: archlinux/base
