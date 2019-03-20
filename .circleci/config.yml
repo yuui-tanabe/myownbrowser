@@ -47,7 +47,7 @@ workflows:
   ci-work:
     jobs:
       - Save code to cache
-      - build:
+      - Build:
           requires:
             - Save code to cache
       - deploy:
