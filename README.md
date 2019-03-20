@@ -1,3 +1,3 @@
 # Java Development Studying
 
-[![CircleCI](https://circleci.com/gh/yuui-tanabe/myownbrowser.svg?style=svg)](https://circleci.com/gh/yuui-tanabe/myownbrowser)
+[![CircleCI](https://circleci.com/gh/yuui-tanabe/pipres.svg?style=svg)](https://circleci.com/gh/yuui-tanabe/pipres)
