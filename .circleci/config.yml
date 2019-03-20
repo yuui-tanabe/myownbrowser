@@ -9,7 +9,7 @@ jobs:
           name: Update System & Install Tools & Checkout
           command: | 
             pacman -Syu --noconfirm
-            pacman -Sy --noconfirm openjdk git openssh
+            pacman -Sy --noconfirm jdk-openjdk git openssh
       - checkout 
   build:
     docker:
