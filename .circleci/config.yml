@@ -35,17 +35,14 @@ jobs:
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
 workflows:
   version: 2
-  prepare:
+  ci-work:
     jobs:
-      prepare:
-        - prepare
-      build:
-        - build
-        requires:
-          - prepare
-      deploy:
-        - deploy 
-        requires:
-          - build     
+      - prepare
+      - build:
+          requires:
+            - prepare
+      - deploy:
+          requires:
+            - build
         
           
