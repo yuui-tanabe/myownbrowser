@@ -13,7 +13,7 @@ jobs:
       - checkout 
   build:
     docker:
-      - image: arhclinux/base
+      - image: archlinux/base
     steps:
       - run:
           name: CI Build
@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            pacman -Sy curl
+            pacman -Sy --noconfirm curl
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
 workflows:
   version: 2
