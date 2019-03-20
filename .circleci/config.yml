@@ -29,8 +29,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      environment:
-        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+      
       - run:
           name: CI Build
           command: |
@@ -40,7 +39,8 @@ jobs:
            -Dsonar.organization=yuui-tanabe-github \
            -Dsonar.host.url=https://sonarcloud.io \
            -Dsonar.login=$SONAR_TOKEN
-    
+      environment:
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
   Deploy:
     docker:
       - image: archlinux/base
