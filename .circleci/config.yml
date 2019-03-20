@@ -10,12 +10,12 @@ jobs:
           command: | 
             pacman -Syu --noconfirm
             pacman -Sy --noconfirm jdk-openjdk git openssh
-      - checkout 
   build:
     docker:
       - image: archlinux/base
     steps:
-      - run:
+     - checkout
+     - run:
           name: CI Build
           command: |
            ./gradlew bootJar
