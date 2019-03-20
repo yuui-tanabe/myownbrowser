@@ -41,13 +41,16 @@ jobs:
            -Dsonar.login=$SONAR_TOKEN
           environment: 
             JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
+       - save_cache:
+           key: v1-repo-with-bin
+           paths: ~/project
   Deploy:
     docker:
       - image: archlinux/base
     steps:
       - restore_cache:
           keys:
-            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-repo-with-bin
       - run:
           name: Deploying
           command: |
