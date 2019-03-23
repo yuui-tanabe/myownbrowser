@@ -1,4 +1,4 @@
-version: "2.1"
+version: 2.1
 jobs:
   Save code to cache:
     docker:
@@ -60,9 +60,9 @@ jobs:
           name: Deploying
           command: |
             pacman -Sy --noconfirm --noprogressbar curl
-            curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
+            curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/softwares/pipres/0.0.0/pipres.jar
 workflows:
-  version: "2.1"
+  version: 2.1
   Circle CI:
     jobs:
       - Save code to cache
