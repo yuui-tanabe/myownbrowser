@@ -41,9 +41,9 @@ jobs:
            -Dsonar.login=$SONAR_TOKEN
           environment: 
             JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
-       - save_cache:
-           key: v1-repo-with-bin
-           paths: ~/project
+      - save_cache:
+          key: v1-repo-with-bin
+          paths: ~/project
            
   Deploy:
     docker:
