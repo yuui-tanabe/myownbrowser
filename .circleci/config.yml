@@ -1,4 +1,4 @@
-version: 2.1
+version: "2.1"
 jobs:
   Save code to cache:
     docker:
@@ -49,19 +49,20 @@ jobs:
     docker:
       - image: archlinux/base
     steps:
-      - restore_cache:
-          keys:
-            - v1-repo-with-bin
       - run:
           name: Install GNU tar
           command: pacman -Sy --noconfirm --noprogressbar tar
+      - restore_cache:
+          keys:
+            - v1-repo-with-bin
+      
       - run:
           name: Deploying
           command: |
             pacman -Sy --noconfirm --noprogressbar curl
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
 workflows:
-  version: 2.1
+  version: "2.1"
   Circle CI:
     jobs:
       - Save code to cache
