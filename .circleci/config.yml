@@ -53,9 +53,12 @@ jobs:
           keys:
             - v1-repo-with-bin
       - run:
+          name: Install GNU tar
+          command: pacman -Sy --noconfirm --noprogressbar tar
+      - run:
           name: Deploying
           command: |
-            pacman -Sy --noconfirm --noprogressbar curl tar
+            pacman -Sy --noconfirm --noprogressbar curl
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
 workflows:
   version: 2
