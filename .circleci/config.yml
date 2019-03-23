@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Deploying
           command: |
-            pacman -Sy --noconfirm --noconfirm curl
+            pacman -Sy --noconfirm --noprogressbar curl tar
             curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/pipres/java/0.0.0/pipres.jar
 workflows:
   version: 2
