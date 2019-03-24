@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 
 @SpringBootApplication
-@EnableOAuth2Sso
 public class I2CAPI extends WebSecurityConfigurerAdapter {
 	public static void main(String[] args) {
 		SpringApplication.run(OwnController.class, args);
