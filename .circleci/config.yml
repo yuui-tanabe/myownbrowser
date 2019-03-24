@@ -41,36 +41,12 @@ jobs:
            -Dsonar.login=$SONAR_TOKEN
           environment: 
             JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
-      - save_cache:
-          key: v1-repo-with-bin
-          paths: ~/project
-           
-  Deploy:
-    docker:
-      - image: archlinux/base
-    steps:
-      - run:
-          name: Install GNU tar
-          command: pacman -Sy --noconfirm --noprogressbar tar
-      - restore_cache:
-          keys:
-            - v1-repo-with-bin
-      
-      - run:
-          name: Deploying
-          command: |
-            pacman -Sy --noconfirm --noprogressbar curl
-            curl -T build/libs/pipres.jar -uyuui-tanabe:$BINTRAY_TOKEN https://api.bintray.com/content/yuui-tanabe/softwares/pipres/0.0.0/pipres.jar
 workflows:
   version: 2.1
-  Circle CI:
     jobs:
       - Save code to cache
       - Build:
           requires:
             - Save code to cache
-      - Deploy:
-          requires:
-            - Build
         
           
