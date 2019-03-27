@@ -8,7 +8,7 @@ import com.pi4j.io.i2c.I2CDevice;
 import com.pi4j.io.i2c.I2CFactory;
 import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
 
-public class BMP180 {
+public class BMP180Drv {
     // Hardware pressure sampling accuracy modes
     public static final int ULTRALOWPOWER = 0;
     public static final int STANDARD      = 1;
@@ -44,7 +44,7 @@ public class BMP180 {
 
     private double standardSeaLevelPressure = 1013.89; // avarage sea level pressure in Tokyo
 
-    public BMP180(int i2cBus, int i2cAddress, int mode) throws UnsupportedBusNumberException, IOException {
+    public BMP180Drv(int i2cBus, int i2cAddress, int mode) throws UnsupportedBusNumberException, IOException {
         // Create I2C bus
         I2CBus bus = I2CFactory.getInstance(i2cBus);
 
@@ -72,12 +72,12 @@ public class BMP180 {
         this.mode = mode;
     }
 
-    public BMP180(int mode) throws UnsupportedBusNumberException, IOException {
+    public BMP180Drv(int mode) throws UnsupportedBusNumberException, IOException {
         this(I2C_BUS, I2C_ADDRESS, mode);
     }
 
-    public BMP180() throws UnsupportedBusNumberException, IOException {
-        this(BMP180.STANDARD);
+    public BMP180Drv() throws UnsupportedBusNumberException, IOException {
+        this(BMP180Drv.STANDARD);
     }
 
     private int readAndCalcB5() throws IOException, InterruptedException {
