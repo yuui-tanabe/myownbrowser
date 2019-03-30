@@ -19,6 +19,7 @@ plugins {
 
 application {
 	mainClassName = "com.yuuitanabe.pipres.web.BMP180Web"
+	applicationDefaultJvmArgs = listOf("-Dspring.output.ansi.enabled=always")
 }
 
 repositories {
@@ -46,7 +47,9 @@ dependencies {
     dependencies.forEach {
     	implementation(it)
 	}
-	runtime(files("lib/ojdbc8.jar"))
+	runtime(fileTree("lib") {
+		include("*.jar")
+	})
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 }
