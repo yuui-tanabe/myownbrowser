@@ -23,7 +23,7 @@ application {
 }
 
 repositories {
-    // Use jcenter for resolving your dependencies.
+    // Use mavenCentral for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
 	val repos = listOf("repo.spring.io/snapshot",
