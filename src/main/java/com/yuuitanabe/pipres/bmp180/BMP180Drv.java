@@ -1,4 +1,4 @@
-package com.yuuitanabe.pipres;
+package com.yuuitanabe.pipres.bmp180;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

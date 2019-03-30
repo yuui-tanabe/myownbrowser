@@ -17,14 +17,16 @@ plugins {
 	id("org.springframework.boot") version "2.1.3.RELEASE"
 }
 
+application {
+	mainClassName = "com.yuuitanabe.pipres.web.BMP180Web"
+}
+
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
-	jcenter()
 	val repos = listOf("repo.spring.io/snapshot",
-			           "repo.spring.io/milestone",
-					   "central.maven.org/maven2")
+			           "repo.spring.io/milestone")
 	repos.forEach {
 	maven(url = StringBuffer("http://" + it))
 	}
@@ -38,11 +40,13 @@ dependencies {
     						  "org.springframework.boot:spring-boot-starter-web:$springbootver",
     						  "org.springframework.boot:spring-boot-devtools:$springbootver",
        						  "org.springframework:spring-core:$springver",
+       						  "org.springframework:spring-jdbc:$springver",
     						  "com.pi4j:pi4j-core:1.2"
 	)
     dependencies.forEach {
     	implementation(it)
 	}
+	runtime(files("lib/ojdbc8.jar"))
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 }
