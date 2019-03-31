@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   Save code to cache:
     docker:
@@ -41,7 +41,7 @@ jobs:
           environment: 
             JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
 workflows:
-  version: 2
+  version: 2.1
   jobs:
     - Save code to cache  
     - Build:
