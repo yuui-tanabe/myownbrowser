@@ -1,6 +1,9 @@
 version: 2.1
 jobs:
   Save code to cache:
+    branches:
+      only:
+        - master
     docker:
       - image: archlinux/base
 
@@ -16,6 +19,9 @@ jobs:
           paths:
             - ~/project
   Build:
+    branches:
+      only:
+        - master
     docker:
       - image: archlinux/base
     steps:
