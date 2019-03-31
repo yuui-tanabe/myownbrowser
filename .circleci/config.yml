@@ -3,7 +3,6 @@ jobs:
   Save code to cache:
     docker:
       - image: archlinux/base
-
     steps:
       - run:
           name: Install Tools
