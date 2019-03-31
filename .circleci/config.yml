@@ -15,9 +15,6 @@ jobs:
           paths:
             - ~/project
   Build:
-    branches:
-      only:
-        - master
     docker:
       - image: archlinux/base
     steps:
