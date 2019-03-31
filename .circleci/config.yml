@@ -45,10 +45,6 @@ workflows:
   jobs:
     - Save code to cache  
     - Build:
-        filters:
-          branches:
-            only:
-              - develop
         requires:
           - Save code to cache 
         
