@@ -46,13 +46,18 @@ jobs:
             JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
 workflows:
   version: 2.1
-  branches:
-    only:
-      - master
   jobs:
-    - Save code to cache
+    - Save code to cache:
+        filters:
+          branches:
+            only:
+              - develop
     - Build:
+        filters:
+          branches:
+            only:
+              - develop
         requires:
-            - Save code to cache
+          - Save code to cache
         
           
