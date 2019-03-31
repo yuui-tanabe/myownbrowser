@@ -47,15 +47,13 @@ workflows:
         filters:
           branches:
             only:
-              - develop
-                
+              - develop   
     - Build:
-        requires:
-          - Save code to cache 
         filters:
           branches:
             only:
               - develop
-        
+        requires:
+          - Save code to cache 
         
           
