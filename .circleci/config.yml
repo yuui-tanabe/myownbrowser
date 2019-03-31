@@ -43,11 +43,7 @@ jobs:
 workflows:
   version: 2
   jobs:
-    - Save code to cache:
-        filters:
-          branches:
-            only:
-              - develop   
+    - Save code to cache  
     - Build:
         filters:
           branches:
